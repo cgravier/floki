@@ -72,12 +72,27 @@ I generate the make file using clang as follows
 ```
 mkdir build-floki
 cd build-floki
-CXX=/usr/bin/clang++-3.4 cmake ~/source/floki -DCMAKE_CXX_FLAGS="-march=native"
+
+CXX=/usr/bin/clang++-3.5 cmake ~/coding/sorting//floki/ -DCMAKE_CXX_FLAGS="-march=native -O3"
 
 make
 ```
 
+Be sure to use the `O3` flag for performance !
+
 If Boost SIMD is installed to a path other than /usr/local, then set BoostSIMD_INCLUDE_DIR accordingly.
 
+
+
+## Modifications brought by this fork
+
+The benchmark is now run using hard-coded variables (quick an dirty test!) that are two `std:vector` :
+- one for specifying the set of number of elements in the vector to be sorted.
+- one for specifying the set of ranges in which the elements values are drawn from a uniform distribution. Each range value encode the max value in the distribution, the minimum is 0. The distribution is therefore drawn from [0;range_value], for each range_value in the `ranges` vector.
+
+The benchmark is then run for each possible pairs of ( #elements; #range ).
+
+The vector is checked to be sorted for verification.
+A dirty for useful standard ouput prints the benchmark results.
 
 
