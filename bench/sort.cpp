@@ -53,7 +53,7 @@ template <typename T> void random_test(const std::vector <int32_t> & elements, c
             int valnumber = elements[elem];
 
 
-	    std::cout << std::endl << std::endl << "Elements : " << valnumber << " randomly picked using a uniform distribution in a [0;"<< valrange << "] range. " << std::endl;
+	    std::cout << std::endl << std::endl << "Elements : " << valnumber << " randomly picked "<< description << "'s using a uniform distribution in a [0;"<< valrange << "] range. " << std::endl;
 
             std::vector<T> values(elements[elem]);
 
@@ -105,24 +105,24 @@ template <typename T> void random_test(const std::vector <int32_t> & elements, c
 int main(int argc, char **argv)
 {
     size_t iterations = 1;
-    const int sizeElem = 3;
-    const int sizeRange = 3;
+    const int sizeElem = 6;
+    const int sizeRange = 6;
 
     std::vector <int32_t> elements(sizeElem);
     elements[0] = 500000;
     elements[1] = 1000000;
     elements[2] = 5000000;
-    //elements[3] = 10000000;
-    //elements[4] = 25000000;
-    //elements[5] = 50000000;
+    elements[3] = 10000000;
+    elements[4] = 25000000;
+    elements[5] = 50000000;
 
     std::vector <int32_t> range(sizeRange);
     range[0] = 500000;
     range[1] = 1000000;
     range[2] = 5000000;
-    //range[3] = 100000000;
-    //range[4] = 250000000;
-    //range[5] = 500000000;
+    range[3] = 100000000;
+    range[4] = 250000000;
+    range[5] = 500000000;
 
     uint32_t mode = 0;
 
